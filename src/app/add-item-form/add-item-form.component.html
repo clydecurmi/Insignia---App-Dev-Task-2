@@ -1,0 +1,16 @@
+  <div class="additem">
+    <form class="form form-inline" #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
+      <div class="grid-container">
+      <div class="input">
+        <input type="number" required class="inputbox" name="amount" placeholder=" Amount" [ngModel]="item.amount">
+      </div>
+      <input type="text" required class="inputbox" name="description" placeholder=" Description" [ngModel]="item.description">
+      <div class="buttondiv">
+        <button class="button" type="submit" ngClass="{ is-primary: isNewItem, 'is-success': !isNewItem}" [disabled]="!itemForm.valid">
+          <div *ngIf="isNewItem"><ion-icon name="play-outline" style="width: 30px;"></ion-icon></div>
+          <div *ngIf="!isNewItem"><ion-icon name="checkmark-outline"></ion-icon></div>
+        </button>
+      </div>
+      </div>
+    </form>
+  </div>

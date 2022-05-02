@@ -1,0 +1,94 @@
+@import '../../../main-styles.scss';
+
+.root{
+    display: flex;
+    width: 100%;
+    position: relative;
+    column-gap: 10px;
+    
+    &:hover{
+        .edit-button{
+            display: block;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .delete-button{
+            display: block;
+            opacity: 1;
+            transform: scale(1);
+        }
+    
+    }
+
+    .edit-button{
+        width: 20%;
+        display: none;
+        background-color: #1f2629;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 25px;
+
+        .edit-class{
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0; 
+        }
+
+    }
+
+    .delete-button{
+        width: 20%;
+        display: none;
+        background-color: #b6282d;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 25px;
+
+        .delete-class{
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0; 
+        }
+    }
+
+}
+
+.budget-item{
+    display: flex;
+    width: 100%;
+    background-color: #161C1F;
+    color: white;
+    padding:6px;
+    border-radius: 10px;
+    border-color: #212121;
+    cursor: pointer;
+    
+    transition: background-color 0.2s ease-out;
+
+    &:hover{
+        background-color: lighten (#121212, 5%); //card will darken its colour on hover - sass function
+    }
+
+    .description{
+        display: flex;
+        flex-grow: 1;
+        font-size: 18px;
+        margin-left: 5px;
+        align-items: center;
+        padding-left: 4%;
+    }
+
+    .amount{
+        padding: 5px;
+        border-radius: 3px;
+        padding-right: 4%;
+    }
+}
+

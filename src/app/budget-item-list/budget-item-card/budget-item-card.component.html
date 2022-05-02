@@ -1,0 +1,14 @@
+<div class="root">
+  <div class="budget-item" >
+    <div class="description">
+      <p>{{ item.description }}</p>
+    </div>
+    <div class="amount">
+      <p>{{ item.amount }}</p>
+    </div>
+  </div>
+  <div class="edit-button" (click)="onCardClick()" [ngClass]="{ 'income': item.amount >= 0, 'expense': item.amount < 0 }"> <!--if item is smaller than 0, the expense class will be applied, vice versa--><ion-icon class="edit-class" name="create-outline"></ion-icon></div>
+  <div class="delete-button" (click)="onDeleteButtonClick()"><ion-icon class="delete-class" name="trash-outline"></ion-icon></div>
+  <!--<div class="delete-button" (click)="onDeleteButtonClick()"></div>-->
+</div>
+ 

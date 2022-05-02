@@ -1,0 +1,155 @@
+<ion-content class="content">
+    <ion-title routerLink="angular" class="budget">
+      <h2>EU {{ totalBudget }}</h2>
+    </ion-title>
+
+    <section class="incomeexpenses">
+      <div class="blue">EU {{ totalEarnings }}</div><div> Total Earnings</div>
+      <div class="red">EU {{ totalExpenses }}</div><div> Total Expenses</div>
+    </section>
+
+
+
+  <div class="area" [chart]="areaChart" ></div>
+
+  <div class="title">New Item</div>
+  <section class="add-item-section">
+    <div class="add-item-container">
+      <app-add-item-form style="padding: 20px;" (formSubmit)="addItem($event)"></app-add-item-form> <!-- $event - special variable, get the value of the event and pass it to its method.The value of this event is the BudgetItem-->
+    </div>
+  </section>
+
+
+<div class="content">
+
+  <div class="title">Projected Goals</div>
+
+  <section class="progresssection">
+    <div class="bars">
+      <section class="barstext">Weekly Goal</section>
+      <div class="progressbar">
+        <progress [value]="totalBudget" max="{{ WeeklyVal }}"></progress>
+      </div>
+    </div>
+    <div class="inputProgress">
+      <div class="progress">
+      <div class="progresstext">Weekly Projected Goal: €{{ WeeklyVal }}</div><br>
+      <div class="inputdiv"><input class="inputbox" type="number" placeholder=" Amount" #box2/>
+    <button class="progressButton" (click)="getWeeklyVal(box2.value)"><ion-icon name="play-outline" style="width: 30px;"></ion-icon></button>
+  </div>
+  </div>
+  </div>
+  </section>
+
+  <section class="progresssection">
+    <div class="bars">
+      <section class="barstext">Monthly Goal</section>
+      <div class="progressbar">
+        <progress [value]="totalBudget" max="{{ MonthlyVal }}"></progress>
+      </div>
+    </div>
+    <div class="inputProgress">
+      <div class="progress">
+      <div class="progresstext">Monthly Projected Goal: €{{ MonthlyVal }}</div><br>
+    <div class="inputdiv"><input class="inputbox" type="number" placeholder=" Amount" #box1/>
+    <button class="progressButton" (click)="getMonthlyVal(box1.value)"><ion-icon name="play-outline" style="width: 30px;"></ion-icon></button>
+  </div>
+  </div>
+  </div>
+  </section>
+
+  <section class="progresssection">
+    <div class="bars">
+      <section class="barstext">Yearly Goal</section>
+      <div class="progressbar">
+        <progress [value]="totalBudget" max="{{ currentVal }}"></progress>
+      </div>
+    </div>
+
+    <div class="inputProgress">
+      <div class="progress">
+      <div class="progresstext">Yearly Projected Goal: €{{ currentVal }}</div><br>
+      <div class="inputdiv"><input class="inputbox" type="number" placeholder=" Amount" #box/>
+    <button class="progressButton" (click)="getVal(box.value)"><ion-icon name="play-outline" style="width: 30px;"></ion-icon></button>
+  </div>
+  </div>
+  </div>
+  </section>
+
+  <div class="title">Current Insignia Tier</div>
+
+  <section class="progresssection1">
+    <div *ngIf="totalBudget<100" class="bars1">
+      <div class="trophy1">
+      <img style="width: 42px; padding-top: 11px;" class="insigniaimages" src="../../assets/Templar.png" class="logo">
+      </div>
+      <div class="percentage1">
+      <section class="barstext1">Templar</section>
+      <div class="description1">First step into Insignia! A member of the knights templar. </div>
+    </div>
+    <div class="progress1">#6</div>
+    </div>
+
+    <div *ngIf="totalBudget>=100 && totalBudget<500" class="bars1">
+      <div class="trophy1">
+      <img style="width: 41px; padding-top: 6px;" class="insigniaimages" src="../../assets/Templar 1st Class.png" class="logo">
+      </div>
+      <div class="percentage1">
+      <section class="barstext1">Templar 1st Class</section>
+      <div class="description1">Ranking Up! Only those from noble families could become noble kights. </div>
+    </div>
+    <div class="progress1">#5</div>
+    </div>
+
+    <div *ngIf="totalBudget>=500 && totalBudget<1000" class="bars1">
+      <div class="trophy1">
+      <img style="width: 39px; padding-top: 9px;" class="insigniaimages" src="../../assets/Officer.png" class="logo">
+      </div>
+      <div class="percentage1">
+      <section class="barstext1">Officer</section>
+      <div class="description1">You now hold a position of authority, especially one with a commission! </div>
+    </div>
+    <div class="progress1">#4</div>
+    </div>
+
+    <div *ngIf="totalBudget>=1000 && totalBudget<10000" class="bars1">
+      <div class="trophy1">
+      <img style="width: 40px; padding-top: 9px;" class="insigniaimages" src="../../assets/Commander.png" class="logo">
+      </div>
+      <div class="percentage1">
+      <section class="barstext1">Commander</section>
+      <div class="description1">Second most senior grade of seven orders of chivalry. Impressive!</div>
+    </div>
+    <div class="progress1">#3</div>
+    </div>
+
+    <div *ngIf="totalBudget>=10000 && totalBudget<100000" class="bars1">
+      <div class="trophy1">
+      <img style="width: 33px; padding-top: 6px;" class="insigniaimages" src="../../assets/GrandCross.png" class="logo">
+      </div>
+      <div class="percentage1">
+      <section class="barstext1">Grand Cross</section>
+      <div class="description1">Leader of the knights chivalry. Highest rank in Insignia!</div>
+    </div>
+    <div class="progress1">#2</div>
+    </div>
+
+    <div *ngIf="totalBudget>=100000" class="bars1">
+      <div class="trophy1">
+      <img style="width: 42px; padding-top: 8px;" class="insigniaimages" src="../../assets/Legend.png" class="logo">
+      </div>
+      <div class="percentage1">
+      <section class="barstext1">Legend</section>
+      <div class="description1">One and only living notorious legend. Admired by a lot!</div>
+    </div>
+    <div class="progress1">#1</div>
+    </div>
+    </section>
+
+    <app-budget-item-list [budgetItems]="budgetItems" (delete)="deleteItem($event)" (update)="updateItem($event)"></app-budget-item-list>
+    
+  </div>
+
+</ion-content>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,16 @@
+<ion-content [fullscreen]="true">
+
+  <ion-title class="budget">
+    <h2>Top Crypto List</h2>
+  </ion-title>
+  
+  <div class="container">
+      <button class="button" (click)="runHttp()">Press</button>
+      <ion-list *ngFor="let friend of friends">
+          <ion-item color="#000000">
+              <h3>{{ friend.rank }}</h3> &nbsp; - &nbsp; <h5>{{ friend.name }}</h5> &nbsp; - &nbsp; <h5>{{friend.price}}</h5>
+          </ion-item>
+      </ion-list>
+    </div>
+
+</ion-content>
